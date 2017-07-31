@@ -4,10 +4,10 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-#define PORT 9876 //サーバープログラムとポート番号を合わせてください
+#define PORT 8765 //サーバープログラムとポート番号を合わせてください
 
 int main() {
-        // IP アドレス，ポート番号，ソケット，sockaddr_in 構造体
+        // IP アドレス，ポート番号，ソケット構造体
         char destination[32];
         int dstSocket;
         struct sockaddr_in dstAddr;
@@ -40,14 +40,12 @@ int main() {
         std::cout << destination << " to connected\n" << std::endl;
         std::cout << "input Character\n" << std::endl;
 
-//データ送信ループ
+        //データ送信ループ
         while (1) {
-                scanf("%s",buffer);
+                std::cin >>buffer;
                 //パケットの送信
                 send(dstSocket, buffer, 1024, 0);
-                //パケットの受信
-                recv(dstSocket, buffer, 1024, 0);
-                printf("→ %s\n\n",buffer);
+                std::cout << buffer <<std::endl;
         }
 
         // Windows でのソケットの終了
