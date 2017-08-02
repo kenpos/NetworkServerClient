@@ -58,5 +58,5 @@ int main(int argc, char const *argv[]) {
 // Windows での終了設定
         WSACleanup();
 
-        return(0);
+        return 0;
 }

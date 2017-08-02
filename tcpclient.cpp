@@ -51,5 +51,5 @@ int main() {
         // Windows でのソケットの終了
         closesocket(dstSocket);
         WSACleanup();
-        return(0);
+        return 0;
 }
